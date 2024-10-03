@@ -20,7 +20,6 @@ class Rectangle extends Shape {
         if (width > height) {
             System.out.print("Drawing ▭\n");
         } else System.out.print("Drawing ▯\n");
-
     }
 
     @Override
