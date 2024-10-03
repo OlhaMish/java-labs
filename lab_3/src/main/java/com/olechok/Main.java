@@ -3,24 +3,25 @@ package com.olechok;
 
 public class Main {
     public static void main(String[] args) {
-
-        Shape rectangle = new Rectangle("Red", 5, 10);
+        ShapeGenerator shapeGenerator = new ShapeGenerator();
+        Shape[] shapes = shapeGenerator.generateRandomShapes(10);
 
         ShapeView view = new ShapeView();
-        ShapeController controller = new ShapeController(rectangle, view);
-        controller.updateView();
+        ShapeController controller = new ShapeController(shapes, view);
 
-        Shape triangle = new Triangle("Blue", 3, 6);
-        ShapeController controller2 = new ShapeController(triangle, view);
-        controller2.updateView();
+        System.out.println("Initial Shapes:");
+        controller.displayShapes();
 
-        Shape circle = new Circle("Green", 7);
-        ShapeController controller3 = new ShapeController(circle, view);
-        controller3.updateView();
+        controller.calculateTotalArea();
 
+        controller.calculateTotalAreaByType(Circle.class);
+
+        System.out.println("\nShapes sorted by Area:");
+        controller.sortShapesByArea();
+        controller.displayShapes();
+
+        System.out.println("\nShapes sorted by Color:");
+        controller.sortShapesByColor();
+        controller.displayShapes();
     }
 }
-
-
-
-
