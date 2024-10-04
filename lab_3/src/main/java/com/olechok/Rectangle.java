@@ -24,10 +24,9 @@ class Rectangle extends Shape {
 
     @Override
     public String toString() {
-        return super.toString() + "Rectangle [width=" + width + ", height=" + height + ", area=" + calcArea() + "]";
+        return super.toString() + "Rectangle [height=" + height + ", " +
+                "width=" + width + ", " +
+                "color=" + shapeColor + ", " +
+                "area=" + calcArea() + "]";
     }
 }
-
-
-
-

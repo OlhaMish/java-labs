@@ -20,6 +20,8 @@ class Circle extends Shape {
 
     @Override
     public String toString() {
-        return super.toString() + "Circle [radius=" + radius + ", area=" + calcArea() + "]";
+        return super.toString() + "Circle [radius=" + radius + ", " +
+                "color=" + shapeColor + ", " +
+                "area=" + calcArea() + "]";
     }
 }

@@ -22,8 +22,9 @@ class Triangle extends Shape {
 
     @Override
     public String toString() {
-        return super.toString() + "Circle [height=" + height + ", " +
+        return super.toString() + "Triangle [height=" + height + ", " +
                 "base=" + base + ", " +
-                "area" + calcArea() + "]";
+                "color=" + shapeColor + ", " +
+                "area=" + calcArea() + "]";
     }
 }
