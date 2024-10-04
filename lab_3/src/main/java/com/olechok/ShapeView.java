@@ -22,5 +22,9 @@ class ShapeView {
             System.out.println("Total Area of " + type + " Shapes: " + totalArea);
         }
     }
+
+    public void displayMessage(String message) {
+        System.out.println(message);
+    }
 }
 
