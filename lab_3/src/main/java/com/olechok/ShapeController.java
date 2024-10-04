@@ -1,46 +1,73 @@
 package com.olechok;
-import java.util.Arrays;
-import java.util.Comparator;
 
 class ShapeController {
-    private Shape[] shapes;
+    private ShapeModel model;
     private ShapeView view;
 
-    public ShapeController(Shape[] shapes, ShapeView view) {
-        this.shapes = shapes;
+    public ShapeController(ShapeModel model, ShapeView view) {
+        this.model = model;
         this.view = view;
     }
 
     public void displayShapes() {
-        view.displayShapeList(shapes);
+        view.displayShapeList(model.getShapes());
     }
 
     public void calculateTotalArea() {
-        double totalArea = 0;
-        for (Shape shape : shapes) {
-            totalArea += shape.calcArea();
+        double totalArea = model.calculateTotalArea();
+        if (totalArea != 0.0) {
+            view.displayTotalArea(totalArea);
+        } else {
+            view.displayMessage("No shapes to calculate.");
         }
-        view.displayTotalArea(totalArea);
     }
 
     public void calculateTotalAreaByType(Class<? extends Shape> shapeType) {
-        double totalArea = 0;
+        double totalAreaByType = model.calculateTotalAreaByType(shapeType);
         String typeName = shapeType.getSimpleName();
-
-        for (Shape shape : shapes) {
-            if (shapeType.isInstance(shape)) {
-                totalArea += shape.calcArea();
-            }
+        if (totalAreaByType != 0.0) {
+            view.displayTotalAreaByType(totalAreaByType, typeName);
+        } else {
+            view.displayMessage("No shapes to calculate.");
         }
-        view.displayTotalAreaByType(totalArea, typeName);
     }
 
     public void sortShapesByArea() {
-        Arrays.sort(shapes, Comparator.comparingDouble(Shape::calcArea));
+        double totalArea = model.calculateTotalArea();
+        if (totalArea != 0.0) {
+            model.sortShapesByArea();
+            view.displayMessage("Shapes sorted by Area:");
+            view.displayShapeList(model.getShapes());
+        } else {
+            view.displayMessage("No shapes to sort.");
+        }
     }
 
     public void sortShapesByColor() {
-        Arrays.sort(shapes, Comparator.comparing(Shape::calcArea));
+        double totalArea = model.calculateTotalArea();
+        if (totalArea != 0.0) {
+            model.sortShapesByColor();
+            view.displayMessage("Shapes sorted by Color:");
+            view.displayShapeList(model.getShapes());
+        } else {
+            view.displayMessage("No shapes to sort.");
+        }
     }
-}
 
+    public void setShapes(int numberOfShapes) {
+        model.setShapes(numberOfShapes);
+    }
+
+    public void getTotalAreaByType(String shapeType) {
+        if (shapeType.equalsIgnoreCase("Circle")) {
+            calculateTotalAreaByType(Circle.class);
+        } else if (shapeType.equalsIgnoreCase("Rectangle")) {
+            calculateTotalAreaByType(Rectangle.class);
+        } else if (shapeType.equalsIgnoreCase("Triangle")) {
+            calculateTotalAreaByType(Triangle.class);
+        } else {
+            System.out.println("Invalid shape type.");
+        }
+    }
+
+}
