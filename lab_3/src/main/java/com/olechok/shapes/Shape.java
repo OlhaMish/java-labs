@@ -1,7 +1,9 @@
-package com.olechok;
+package com.olechok.shapes;
 
-abstract class Shape implements Drawable {
-    protected String shapeColor;
+import com.olechok.drawable.Drawable;
+
+public abstract class Shape implements Drawable {
+    public String shapeColor;
 
     public Shape(String shapeColor) {
         this.shapeColor = shapeColor;

@@ -1,5 +1,10 @@
 package com.olechok;
 
+import com.olechok.controller.ShapeController;
+import com.olechok.model.ShapeModel;
+import com.olechok.utils.InputUtils;
+import com.olechok.view.ShapeView;
+
 public class ShapeApp {
     public static void main(String[] args) {
         ShapeModel model = new ShapeModel(null);

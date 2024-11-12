@@ -1,4 +1,4 @@
-package com.olechok;
+package com.olechok.drawable;
 
 public interface Drawable {
     void draw();

@@ -1,4 +1,8 @@
 package com.olechok;
+import com.olechok.shapes.Circle;
+import com.olechok.shapes.Rectangle;
+import com.olechok.shapes.Shape;
+import com.olechok.view.ShapeView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.io.ByteArrayOutputStream;

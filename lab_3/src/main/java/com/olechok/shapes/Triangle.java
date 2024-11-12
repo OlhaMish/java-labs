@@ -1,8 +1,8 @@
-package com.olechok;
+package com.olechok.shapes;
 
-class Triangle extends Shape {
-    private double height;
-    private double base;
+public class Triangle extends Shape {
+    private final double height;
+    private final double base;
 
     public Triangle(String shapeColor, double height, double base) {
         super(shapeColor);

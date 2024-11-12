@@ -1,4 +1,9 @@
-package com.olechok;
+package com.olechok.generator;
+import com.olechok.shapes.Circle;
+import com.olechok.shapes.Rectangle;
+import com.olechok.shapes.Shape;
+import com.olechok.shapes.Triangle;
+
 import java.util.Random;
 
 

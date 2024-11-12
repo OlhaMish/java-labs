@@ -1,8 +1,8 @@
-package com.olechok;
+package com.olechok.shapes;
 
-class Rectangle extends Shape {
-    private double width;
-    private double height;
+public class Rectangle extends Shape {
+    private final double width;
+    private final double height;
 
     public Rectangle(String shapeColor, double width, double height) {
         super(shapeColor);

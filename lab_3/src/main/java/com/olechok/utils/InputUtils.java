@@ -1,9 +1,9 @@
-package com.olechok;
+package com.olechok.utils;
 
 import java.util.Scanner;
 
 public class InputUtils {
-    private Scanner scanner = new Scanner(System.in);
+    private final Scanner scanner = new Scanner(System.in);
 
     public void printMenu() {
         System.out.println("\nChoose an option:");

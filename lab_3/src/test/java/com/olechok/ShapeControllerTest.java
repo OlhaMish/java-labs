@@ -1,5 +1,12 @@
 package com.olechok;
 
+import com.olechok.controller.ShapeController;
+import com.olechok.model.ShapeModel;
+import com.olechok.shapes.Circle;
+import com.olechok.shapes.Rectangle;
+import com.olechok.shapes.Shape;
+import com.olechok.shapes.Triangle;
+import com.olechok.view.ShapeView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -7,9 +14,7 @@ import java.util.Arrays;
 
 class ShapeControllerTest {
 
-    private ShapeModel model;
     private ShapeController controller;
-    private ShapeView view;
     private Shape[] shapes;
 
     @BeforeEach
@@ -19,8 +24,8 @@ class ShapeControllerTest {
                 new Rectangle("Blue", 4.0, 5.0),
                 new Triangle("Green", 4.0, 6.0)
         };
-        model = new ShapeModel(shapes);
-        view = new ShapeView();
+        ShapeModel model = new ShapeModel(shapes);
+        ShapeView view = new ShapeView();
         controller = new ShapeController(model, view);
     }
 

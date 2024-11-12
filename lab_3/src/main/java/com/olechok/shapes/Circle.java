@@ -1,7 +1,7 @@
-package com.olechok;
+package com.olechok.shapes;
 
-class Circle extends Shape {
-    private double radius;
+public class Circle extends Shape {
+    private final double radius;
 
     public Circle(String shapeColor, double radius) {
         super(shapeColor);

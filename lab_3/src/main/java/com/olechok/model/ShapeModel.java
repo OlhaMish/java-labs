@@ -1,4 +1,7 @@
-package com.olechok;
+package com.olechok.model;
+
+import com.olechok.generator.ShapeGenerator;
+import com.olechok.shapes.Shape;
 
 import java.util.Arrays;
 import java.util.Comparator;
@@ -47,7 +50,7 @@ public class ShapeModel {
         return shapes;
     }
 
-    protected void setShapes(int numberOfShapes) {
+    public void setShapes(int numberOfShapes) {
         shapes = ShapeGenerator.generateRandomShapes(numberOfShapes);
     }
 }

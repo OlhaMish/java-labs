@@ -1,8 +1,15 @@
-package com.olechok;
+package com.olechok.controller;
 
-class ShapeController {
-    private ShapeModel model;
-    private ShapeView view;
+import com.olechok.model.ShapeModel;
+import com.olechok.view.ShapeView;
+import com.olechok.shapes.Circle;
+import com.olechok.shapes.Rectangle;
+import com.olechok.shapes.Shape;
+import com.olechok.shapes.Triangle;
+
+public class ShapeController {
+    private final ShapeModel model;
+    private final ShapeView view;
 
     public ShapeController(ShapeModel model, ShapeView view) {
         this.model = model;

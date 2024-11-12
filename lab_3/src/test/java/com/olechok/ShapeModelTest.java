@@ -1,5 +1,8 @@
 package com.olechok;
 
+import com.olechok.shapes.Circle;
+import com.olechok.shapes.Rectangle;
+import com.olechok.shapes.Triangle;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

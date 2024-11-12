@@ -1,6 +1,8 @@
-package com.olechok;
+package com.olechok.view;
 
-class ShapeView {
+import com.olechok.shapes.Shape;
+
+public class ShapeView {
     public void displayShapeList(Shape[] shapes) {
         if (shapes == null || shapes.length == 0) {
             System.out.println("No shapes found.");
