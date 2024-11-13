@@ -1,18 +1,20 @@
 package com.olechok.generator;
+
 import com.olechok.shapes.Circle;
 import com.olechok.shapes.Rectangle;
 import com.olechok.shapes.Shape;
 import com.olechok.shapes.Triangle;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
-
 
 public class ShapeGenerator {
     private static final Random random = new Random();
     private static final String[] colors = {"Red", "Green", "Blue", "Yellow", "Purple"};
 
-    public static Shape[] generateRandomShapes(int numberOfShapes) {
-        Shape[] shapes = new Shape[numberOfShapes];
+    public static List<Shape> generateRandomShapes(int numberOfShapes) {
+        List<Shape> shapes = new ArrayList<>();
 
         for (int i = 0; i < numberOfShapes; i++) {
             int shapeType = random.nextInt(3);
@@ -21,17 +23,17 @@ public class ShapeGenerator {
             switch (shapeType) {
                 case 0:
                     double radius = 1 + random.nextDouble() * 9;
-                    shapes[i] = new Circle(color, radius);
+                    shapes.add(new Circle(color, radius));
                     break;
                 case 1:
                     double width = 1 + random.nextDouble() * 9;
                     double height = 1 + random.nextDouble() * 9;
-                    shapes[i] = new Rectangle(color, width, height);
+                    shapes.add(new Rectangle(color, width, height));
                     break;
                 case 2:
                     double base = 1 + random.nextDouble() * 9;
                     double triHeight = 1 + random.nextDouble() * 9;
-                    shapes[i] = new Triangle(color, triHeight, base);
+                    shapes.add(new Triangle(color, triHeight, base));
                     break;
             }
         }

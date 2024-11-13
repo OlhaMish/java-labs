@@ -11,6 +11,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
+import java.util.List;
 
 class ShapeControllerTest {
 
@@ -24,7 +25,7 @@ class ShapeControllerTest {
                 new Rectangle("Blue", 4.0, 5.0),
                 new Triangle("Green", 4.0, 6.0)
         };
-        ShapeModel model = new ShapeModel(shapes);
+        ShapeModel model = new ShapeModel(List.of(shapes));
         ShapeView view = new ShapeView();
         controller = new ShapeController(model, view);
     }

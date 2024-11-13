@@ -5,16 +5,17 @@ import com.olechok.shapes.Shape;
 
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.List;
 
-public class ShapeModel {
-    private Shape[] shapes;
+public class ShapeModel implements Serializable {
+    private List<Shape> shapes;
 
-    public ShapeModel(Shape[] shapes) {
+    public ShapeModel(List<Shape> shapes) {
         this.shapes = shapes;
     }
 
     public double calculateTotalArea() {
-        if (shapes == null || shapes.length == 0) {
+        if (shapes == null || shapes.isEmpty()) {
             return 0.0;
         }
 
@@ -26,7 +27,7 @@ public class ShapeModel {
     }
 
     public double calculateTotalAreaByType(Class<? extends Shape> shapeType) {
-        if (shapes == null || shapes.length == 0) {
+        if (shapes == null || shapes.isEmpty()) {
             return 0.0;
         }
         double totalArea = 0;
@@ -39,14 +40,14 @@ public class ShapeModel {
     }
 
     public void sortShapesByArea() {
-        Arrays.sort(shapes, Comparator.comparingDouble(Shape::calcArea));
+        shapes.sort(Comparator.comparingDouble(Shape::calcArea));
     }
 
     public void sortShapesByColor() {
-        Arrays.sort(shapes, Comparator.comparing(shape -> shape.shapeColor));
+        shapes.sort(Comparator.comparing(shape -> shape.shapeColor));
     }
 
-    public Shape[] getShapes() {
+    public List<Shape> getShapes() {
         return shapes;
     }
 

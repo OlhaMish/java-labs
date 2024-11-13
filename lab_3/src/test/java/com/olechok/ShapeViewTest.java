@@ -1,12 +1,17 @@
 package com.olechok;
+
 import com.olechok.shapes.Circle;
 import com.olechok.shapes.Rectangle;
 import com.olechok.shapes.Shape;
 import com.olechok.view.ShapeView;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ShapeViewTest {
@@ -22,14 +27,17 @@ class ShapeViewTest {
 
     @Test
     void testDisplayShapeList() {
-        Shape[] shapes = { new Circle("Red", 2),
-                           new Rectangle("Blue", 3, 4) };
+        List<Shape> shapes = Arrays.asList(
+                new Circle("Red", 2),
+                new Rectangle("Blue", 3, 4)
+        );
+
         view.displayShapeList(shapes);
+
         String expectedOutput = "Shape info: Circle [radius=2.0, color=Red, area=12.566370614359172]\n"
                 + "Shape info: Rectangle [height=4.0, width=3.0, color=Blue, area=12.0]";
         assertEquals(expectedOutput, outputStreamCaptor.toString().trim());
     }
-
 
     @Test
     void testDisplayTotalArea() {
@@ -43,4 +51,3 @@ class ShapeViewTest {
         assertEquals("Test message", outputStreamCaptor.toString().trim());
     }
 }
-

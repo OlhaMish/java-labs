@@ -2,8 +2,12 @@ package com.olechok;
 
 import com.olechok.controller.ShapeController;
 import com.olechok.model.ShapeModel;
+import com.olechok.utils.FileUtils;
 import com.olechok.utils.InputUtils;
 import com.olechok.view.ShapeView;
+import com.olechok.shapes.Shape;
+
+import java.util.List;
 
 public class ShapeApp {
     public static void main(String[] args) {
@@ -20,7 +24,7 @@ public class ShapeApp {
             int choice = inputUtils.getChoice();
             switch (choice) {
                 case 1:
-                    controller.setShapes(10);
+                    controller.setShapesWithGenerator(10);
                     System.out.println("Generated new shapes:");
                     controller.displayShapes();
                     break;

@@ -7,6 +7,8 @@ import com.olechok.shapes.Rectangle;
 import com.olechok.shapes.Shape;
 import com.olechok.shapes.Triangle;
 
+import java.util.List;
+
 public class ShapeController {
     private final ShapeModel model;
     private final ShapeView view;
@@ -61,7 +63,7 @@ public class ShapeController {
         }
     }
 
-    public void setShapes(int numberOfShapes) {
+    public void setShapesWithGenerator(int numberOfShapes) {
         model.setShapes(numberOfShapes);
     }
 
