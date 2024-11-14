@@ -15,7 +15,6 @@ public class FileUtils {
         }
     }
 
-    @SuppressWarnings("unchecked")
     public static List<Shape> readShapesFromFile(String filename) {
         List<Shape> shapes = null;
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(filename))) {
