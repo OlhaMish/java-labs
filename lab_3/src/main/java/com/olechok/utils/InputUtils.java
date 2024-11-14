@@ -12,7 +12,11 @@ public class InputUtils {
         System.out.println("3. Calculate total area by type");
         System.out.println("4. Sort shapes by area");
         System.out.println("5. Sort shapes by color");
-        System.out.println("6. Exit");
+
+        System.out.println("6. Save a set of objects to a file");
+        System.out.println("7. Read a set of objects from a file");
+
+        System.out.println("8. Exit");
     }
 
     public int getChoice() {
@@ -32,4 +36,10 @@ public class InputUtils {
     public void scannerClose() {
         scanner.close();
     }
+
+    public String getFilePath(String prompt) {
+        System.out.println(prompt);
+        return scanner.next();
+    }
+
 }

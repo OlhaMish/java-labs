@@ -3,7 +3,7 @@ package com.olechok.model;
 import com.olechok.generator.ShapeGenerator;
 import com.olechok.shapes.Shape;
 
-import java.util.Arrays;
+import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
 
@@ -49,6 +49,10 @@ public class ShapeModel implements Serializable {
 
     public List<Shape> getShapes() {
         return shapes;
+    }
+
+    public void setShapes(List<Shape> shapes) {
+        this.shapes = shapes;
     }
 
     public void setShapes(int numberOfShapes) {

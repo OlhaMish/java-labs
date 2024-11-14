@@ -44,8 +44,22 @@ public class ShapeApp {
                     controller.sortShapesByColor();
                     break;
                 case 6:
-                    running = false;
+                    String saveFilename = inputUtils.getFilePath("Enter filename to save shapes: ");
+                    List<Shape> shapesToSave = controller.getShapes();
+                    FileUtils.saveShapesToFile(shapesToSave, saveFilename);
+                    break;
+                case 7:
+                    String loadFilename = inputUtils.getFilePath("Enter filename to load shapes: ");
+                    List<Shape> loadedShapes = FileUtils.readShapesFromFile(loadFilename);
+                    if (loadedShapes != null) {
+                        System.out.println("Loaded shapes from file:");
+                        loadedShapes.forEach(System.out::println);
+                        controller.setShapesFromFile(loadedShapes);
+                    }
+                    break;
+                case 8:
                     System.out.println("Exiting...");
+                    running = false;
                     break;
                 default:
                     System.out.println("Invalid option. Please try again.");
@@ -54,4 +68,3 @@ public class ShapeApp {
         inputUtils.scannerClose();
     }
 }
-

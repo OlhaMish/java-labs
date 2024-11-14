@@ -67,6 +67,10 @@ public class ShapeController {
         model.setShapes(numberOfShapes);
     }
 
+    public void setShapesFromFile(List<Shape> shapes) {
+        model.setShapes(shapes);
+    }
+
     public void getTotalAreaByType(String shapeType) {
         if (shapeType.equalsIgnoreCase("Circle")) {
             calculateTotalAreaByType(Circle.class);
@@ -79,4 +83,7 @@ public class ShapeController {
         }
     }
 
+    public List<Shape> getShapes() {
+        return model.getShapes();
+    }
 }
