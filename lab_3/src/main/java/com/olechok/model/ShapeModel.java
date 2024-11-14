@@ -3,11 +3,10 @@ package com.olechok.model;
 import com.olechok.generator.ShapeGenerator;
 import com.olechok.shapes.Shape;
 
-import java.io.Serializable;
 import java.util.Comparator;
 import java.util.List;
 
-public class ShapeModel implements Serializable {
+public class ShapeModel {
     private List<Shape> shapes;
 
     public ShapeModel(List<Shape> shapes) {
