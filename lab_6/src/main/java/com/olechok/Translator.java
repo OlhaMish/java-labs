@@ -1,10 +1,9 @@
 package com.olechok;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class Translator {
-    private final Map<String, String> dictionary;
+    private final HashMap<String, String> dictionary;
 
     public Translator() {
         this.dictionary = new HashMap<>();
