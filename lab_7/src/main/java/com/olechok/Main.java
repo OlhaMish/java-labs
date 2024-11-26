@@ -3,7 +3,7 @@ package com.olechok;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
@@ -18,28 +18,17 @@ public class Main {
         }
     }
 
-    protected static int countUniqueCharacters(String word) {
-        HashSet<Character> uniqueChars = new HashSet<>();
-        for (char c : word.toCharArray()) {
-            uniqueChars.add(c);
-        }
-        return uniqueChars.size();
+    public static int countUniqueCharacters(String word) {
+        return (int) word.chars().distinct().count();
     }
 
-    protected static String findWordWithFewestUniqueChars(String inputString) {
-        String[] words = inputString.split("\\s+");
-        String wordWithFewestUniqueChars = "";
-        int fewestUniqueCharsCount = Integer.MAX_VALUE;
+    public static String findWordWithFewestUniqueChars(String inputString) {
+        return splitIntoWords(inputString)
+                .min((w1, w2) -> Integer.compare(countUniqueCharacters(w1), countUniqueCharacters(w2)))
+                .orElse("");
+    }
 
-        for (String word : words) {
-            int uniqueCharCount = countUniqueCharacters(word);
-            if (uniqueCharCount < fewestUniqueCharsCount) {
-                fewestUniqueCharsCount = uniqueCharCount;
-                wordWithFewestUniqueChars = word;
-            }
-        }
-        return wordWithFewestUniqueChars;
+    private static Stream<String> splitIntoWords(String inputString) {
+        return Stream.of(inputString.split("\\s+"));
     }
 }
-
-
