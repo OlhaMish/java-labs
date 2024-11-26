@@ -1,20 +1,19 @@
 package com.olechok;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.*;
 import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.print("Enter your text: \n");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your text:");
+        String input = scanner.nextLine();
 
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            String input = reader.readLine();
-            String result = findWordWithFewestUniqueChars(input);
-            System.out.printf("Word with the fewest unique characters: %s%n", result);
-        } catch (IOException e) {
-            System.err.println("An error occurred while reading input: " + e.getMessage());
+        String result = findWordWithFewestUniqueChars(input);
+        if (!result.isEmpty()) {
+            System.out.println("Word with minimum unique characters: " + result);
+        } else {
+            System.out.println("No valid words found.");
         }
     }
 
