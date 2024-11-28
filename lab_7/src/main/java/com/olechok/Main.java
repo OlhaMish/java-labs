@@ -23,11 +23,15 @@ public class Main {
 
     public static String findWordWithFewestUniqueChars(String inputString) {
         return splitIntoWords(inputString)
-                .min((w1, w2) -> Integer.compare(countUniqueCharacters(w1), countUniqueCharacters(w2)))
+                .min((w1, w2) -> Integer.compare(
+                        countUniqueCharacters(w1), countUniqueCharacters(w2))
+                )
                 .orElse("");
     }
 
     private static Stream<String> splitIntoWords(String inputString) {
-        return Stream.of(inputString.split("\\s+"));
+        return Stream.of(inputString.split("\\s+"))
+                .filter(word -> !word.isEmpty())
+                .map(word -> word.trim());
     }
 }
