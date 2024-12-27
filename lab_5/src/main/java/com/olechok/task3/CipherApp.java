@@ -1,23 +1,33 @@
 package com.olechok.task3;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.io.*;
+import java.util.Locale;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class CipherApp {
 
+    private static final Logger logger = LogManager.getLogger(CipherApp.class);
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ResourceBundle messages = selectLanguage(scanner);
 
-        System.out.print("The path to the input file: ");
+        logger.info(messages.getString("start.app"));
+
+        System.out.print(messages.getString("input.file.path") + ": ");
         String inputFilePath = scanner.nextLine();
 
-        System.out.print("The path to the file to save the encrypted data: ");
+        System.out.print(messages.getString("encrypted.file.path") + ": ");
         String encryptedFilePath = scanner.nextLine();
 
-        System.out.print("Path to the file to save the decrypted data: ");
+        System.out.print(messages.getString("decrypted.file.path") + ": ");
         String decryptedFilePath = scanner.nextLine();
 
-        System.out.print("The key symbol for encryption: ");
+        System.out.print(messages.getString("encryption.key") + ": ");
         char key = scanner.nextLine().charAt(0);
 
         try (Reader reader = new FileReader(inputFilePath);
@@ -26,8 +36,10 @@ public class CipherApp {
             while ((character = reader.read()) != -1) {
                 writer.write(character);
             }
-            System.out.println("The text is encrypted and written to " + encryptedFilePath);
+            logger.info(messages.getString("encryption.success") + encryptedFilePath);
+            System.out.println(messages.getString("encryption.success") + encryptedFilePath);
         } catch (IOException e) {
+            logger.error(messages.getString("encryption.error") + e.getMessage(), e);
             e.printStackTrace();
         }
 
@@ -37,9 +49,28 @@ public class CipherApp {
             while ((character = reader.read()) != -1) {
                 writer.write(character);
             }
-            System.out.println("The text is deciphered and written to " + decryptedFilePath);
+            logger.info(messages.getString("decryption.success") + decryptedFilePath);
+            System.out.println(messages.getString("decryption.success") + decryptedFilePath);
         } catch (IOException e) {
+            logger.error(messages.getString("decryption.error") + e.getMessage(), e);
             e.printStackTrace();
         }
+
+        logger.info(messages.getString("end.app"));
+    }
+
+    private static ResourceBundle selectLanguage(Scanner scanner) {
+        System.out.println("Select language / Виберіть мову:");
+        System.out.println("1. English\n2. Українська");
+        int languageChoice = Integer.parseInt(scanner.nextLine());
+
+        Locale locale;
+        if (languageChoice == 2) {
+            locale = new Locale("uk", "UA");
+        } else {
+            locale = new Locale("en", "US");
+        }
+
+        return ResourceBundle.getBundle("location/messages", locale);
     }
 }
