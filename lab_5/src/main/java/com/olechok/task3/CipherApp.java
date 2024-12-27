@@ -36,10 +36,10 @@ public class CipherApp {
             while ((character = reader.read()) != -1) {
                 writer.write(character);
             }
-            logger.info(messages.getString("encryption.success") + encryptedFilePath);
+            logger.info("{}{}", messages.getString("encryption.success"), encryptedFilePath);
             System.out.println(messages.getString("encryption.success") + encryptedFilePath);
         } catch (IOException e) {
-            logger.error(messages.getString("encryption.error") + e.getMessage(), e);
+            logger.error("{}{}", messages.getString("encryption.error"), e.getMessage(), e);
             e.printStackTrace();
         }
 
@@ -49,10 +49,10 @@ public class CipherApp {
             while ((character = reader.read()) != -1) {
                 writer.write(character);
             }
-            logger.info(messages.getString("decryption.success") + decryptedFilePath);
+            logger.info("{}{}", messages.getString("decryption.success"), decryptedFilePath);
             System.out.println(messages.getString("decryption.success") + decryptedFilePath);
         } catch (IOException e) {
-            logger.error(messages.getString("decryption.error") + e.getMessage(), e);
+            logger.error("{}{}", messages.getString("decryption.error"), e.getMessage(), e);
             e.printStackTrace();
         }
 
